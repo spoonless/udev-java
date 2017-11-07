@@ -573,12 +573,85 @@ chaque responsabilité.</p>
 <li>exemple de l’interface Comparable pour le tri et la recherche dans les tableaux</li>
 </ul>
 </div>
+</div>
+<div class="section" id="l-inversion-de-dependance">
+<h2>L’inversion de dépendance<a class="headerlink" href="#l-inversion-de-dependance" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Lorsque nous avons vu les constructeurs, nous avons vu que nous pouvions réaliser
+de <a class="reference internal" href="cycle_de_vie.html#injection-des-dependances"><span class="std std-ref">l’injection de dépendance</span></a> en passant comme
+paramètres de constructeurs les objets nécessaires au fonctionnement d’une classe
+plutôt que de laisser la nouvelle instance créer ces objets elle-même. Grâce à la notion
+d’interface, nous pouvons réaliser une injection de dépendance en découplant
+totalement l’utilisation de l’objet passé par injection de son implémentation.</p>
+<p>Si nous souhaitons créer une classe pour reprénsenter une transaction bancaire,
+nous pouvons réaliser l’implémentation suivante :</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">com.cgi.udev.compte</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.time.Instant</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">TransactionBancaire</span> <span class="o">{</span>
+
+  <span class="kd">private</span> <span class="kd">final</span> <span class="n">Compte</span> <span class="n">compte</span><span class="o">;</span>
+  <span class="kd">private</span> <span class="kd">final</span> <span class="kt">int</span> <span class="n">montant</span><span class="o">;</span>
+  <span class="kd">private</span> <span class="n">Instant</span> <span class="n">date</span><span class="o">;</span>
+
+  <span class="kd">public</span> <span class="nf">TransactionBancaire</span><span class="o">(</span><span class="n">Compte</span> <span class="n">compte</span><span class="o">,</span> <span class="kt">int</span> <span class="n">montant</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">compte</span> <span class="o">=</span> <span class="n">compte</span><span class="o">;</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">montant</span> <span class="o">=</span> <span class="n">montant</span><span class="o">;</span>
+  <span class="o">}</span>
+
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">effectuer</span><span class="o">()</span> <span class="kd">throws</span> <span class="n">OperationInterrompueException</span><span class="o">,</span> <span class="n">CompteBloqueException</span> <span class="o">{</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">isEffectuee</span><span class="o">())</span> <span class="o">{</span>
+      <span class="k">return</span><span class="o">;</span>
+    <span class="o">}</span>
+    <span class="n">compte</span><span class="o">.</span><span class="na">retirer</span><span class="o">(</span><span class="n">montant</span><span class="o">);</span>
+    <span class="n">date</span> <span class="o">=</span> <span class="n">Instant</span><span class="o">.</span><span class="na">now</span><span class="o">();</span>
+  <span class="o">}</span>
+
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">annuler</span><span class="o">()</span> <span class="kd">throws</span> <span class="n">OperationInterrompueException</span><span class="o">,</span> <span class="n">CompteBloqueException</span> <span class="o">{</span>
+    <span class="k">if</span> <span class="o">(!</span> <span class="n">isEffectuee</span><span class="o">())</span> <span class="o">{</span>
+      <span class="k">return</span><span class="o">;</span>
+    <span class="o">}</span>
+    <span class="n">compte</span><span class="o">.</span><span class="na">deposer</span><span class="o">(</span><span class="n">montant</span><span class="o">);</span>
+    <span class="n">date</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+  <span class="o">}</span>
+
+  <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isEffectuee</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="n">date</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">;</span>
+  <span class="o">}</span>
+
+  <span class="kd">public</span> <span class="n">Instant</span> <span class="nf">getDate</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="n">date</span><span class="o">;</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>L’implémentation précédente permet d’effectuer une transaction pour un compte donné
+et un montant donné et mémorise la date. Elle permet également d’annuler la transaction.
+Dans cette implémentation, nous avons réalisé une inversion de contrôle.
+La transaction ne connaît pas la nature exacte de l’objet <em>Compte</em> qu’elle manipule.
+La classe <em>TransactionBancaire</em> fonctionnera quelle que soit l’implémentation
+sous-jacente de l’interface <em>Compte</em>.</p>
+<p>L’inversion de dépendance est un principe de programmation objet qui stipule que
+si une classe A est dépendante d’une classe B, alors il peut être souhaitable que
+que non seulement la classe A reçoive une instance de B par injection mais également
+que B ne soit connu qu’à travers une interface.</p>
+<p>L’inversion de dépendance est très souvent utilisée pour isoler les couches logicielles
+d’une architecture. Au sein d’une application, nous pouvons disposer par exemple d’un ensemble
+de classes pour gérer des opérations utilisateur et d’un ensemble de classes pour
+assurer la persistance des informations.</p>
 <div class="admonition-todo admonition" id="index-1">
 <p class="first admonition-title">À faire</p>
-<ul class="last simple">
-<li>inversion de dépendance</li>
-</ul>
+<p class="last">schéma de classes en exemple</p>
 </div>
+<p>L’architecture logicielle peut utiliser l’inversion de dépendance pour assurer que
+les opérations utilisateur qui ont besoin de réaliser des opérations persistantes
+réalisent des appels à travers des interfaces qui sont injectées. D’un côté, on peut
+imaginer implémenter différentes classes gérant la persistance pour sauver les informations
+dans des fichiers, dans des bases de données ou sur des serveurs distants (et même
+nulle part si on souhaite exécuter le code dans un environnement de test). D’un autre
+côté on peut créer et faire évoluer un système de persistance en ayant une dépendance
+minimale aux opérations utilisateurs puisque le système de persistance doit juste
+fournir des implémentations conformes aux interfaces.</p>
 </div>
 </div>
 
@@ -616,7 +689,7 @@ chaque responsabilité.</p>
 <li class="toctree-l1"><a class="reference internal" href="la_classe_object.html">La classe Object</a></li>
 <li class="toctree-l1"><a class="reference internal" href="la_classe_string.html">La classe String</a></li>
 <li class="toctree-l1"><a class="reference internal" href="les_exceptions.html">Les exceptions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="generiques.html">Les types génériques</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generiques.html">Méthodes et classes génériques</a></li>
 <li class="toctree-l1"><a class="reference internal" href="classe_abstraite.html">Les classes abstraites</a></li>
 <li class="toctree-l1"><a class="reference internal" href="enumeration.html">Les énumérations</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Les interfaces</a><ul>
@@ -627,6 +700,7 @@ chaque responsabilité.</p>
 <li class="toctree-l2"><a class="reference internal" href="#les-interfaces-marqueurs">Les interfaces marqueurs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#implementation-par-defaut">Implémentation par défaut</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#la-segregation-d-interface">La ségrégation d’interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#l-inversion-de-dependance">L’inversion de dépendance</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="classe_interne.html">Les classes internes</a></li>

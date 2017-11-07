@@ -444,15 +444,15 @@ de la programmation objet. La lettre L désigne le <a class="reference external"
 entre un type et son sous-type et les contraintes qui en découlent pour la
 conception objet.</p>
 </div>
-<p>Le principe de substituabilité est une application du trans-typage (<em>casting</em>).
+<p>Le principe de substituabilité est une application du transtypage (<em>casting</em>).
 Comme pour les types primitifs, il est possible d’affecter une référence d’un
 objet à une variable, attribut ou paramètre d’un type différent. Pour que cette
 affectation soit possible il faut que les deux types fassent partie de la même
 hiérarchie d’héritage.</p>
 <img alt="_images/heritage_downcasting_casting.png" src="_images/heritage_downcasting_casting.png" />
 <p>Si le type d’arrivée correspond à un type parent, on parle <em>d’upcasting</em>
-(trans-typage vers le haut). Si le type d’arrivée correspond à un type enfant,
-on parle de <em>downcasting</em> (trans-typage vers le bas).</p>
+(transtypage vers le haut). Si le type d’arrivée correspond à un type enfant,
+on parle de <em>downcasting</em> (transtypage vers le bas).</p>
 <p>À partir du moment où l’implémentation des classes respectent le
 <a class="reference external" href="https://fr.wikipedia.org/wiki/Principe_de_substitution_de_Liskov">principe de substitution de Liskov</a>, l’upcasting est une opération sûre en
 programmation objet. Voilà pourquoi, il est possible d’affecter des instances
@@ -478,7 +478,7 @@ Prenons l’exemple trivial suivant :</p>
 <p>La variable <em>vehicule</em> référence un objet de type Voiture, il n’est donc pas possible
 d’affecter cet objet à une variable de type <em>Moto</em>. Pour cette raison, le
 langage Java, n’autorise pas par défaut le downcasting : l’exemple ci-dessus
-ne compilera pas. Il est cependant possible de forcer le trans-typage en
+ne compilera pas. Il est cependant possible de forcer le transtypage en
 utilisant la même syntaxe que pour les types primitifs.</p>
 <div class="highlight-java"><div class="highlight"><pre><span></span><span class="n">Vehicule</span> <span class="n">vehicule</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Voiture</span><span class="o">(</span><span class="s">&quot;DeLorean&quot;</span><span class="o">);</span>
 <span class="n">Voiture</span> <span class="n">voiture</span> <span class="o">=</span> <span class="o">(</span><span class="n">Voiture</span><span class="o">)</span> <span class="n">vehicule</span><span class="o">;</span>
@@ -488,8 +488,8 @@ utilisant la même syntaxe que pour les types primitifs.</p>
 <p>Le code précédent compile puisque le développeur déclare explicitement le downcasting.
 Cependant, l’affectation à la ligne 3 est erronée puisque la variable <em>vehicule</em>
 référence une instance de <em>Voiture</em> que l’on veut affecter à une variable de type
-<em>Moto</em>. Pour les types primitifs, un trans-typage invalide conduit à une possible
-perte de données. Par contre, pour des objets, un trans-typage invalide génère à
+<em>Moto</em>. Pour les types primitifs, un transtypage invalide conduit à une possible
+perte de données. Par contre, pour des objets, un transtypage invalide génère à
 l’exécution une erreur de type <a class="reference external" href="https://docs.oracle.com/javase/8/docs/api/java/lang/ClassCastException.html">java.lang.ClassCastException</a>.</p>
 </div>
 <div class="section" id="le-mot-cle-instanceof">
@@ -804,7 +804,7 @@ classe pour représenter des pneus.</p>
 <li class="toctree-l1"><a class="reference internal" href="la_classe_object.html">La classe Object</a></li>
 <li class="toctree-l1"><a class="reference internal" href="la_classe_string.html">La classe String</a></li>
 <li class="toctree-l1"><a class="reference internal" href="les_exceptions.html">Les exceptions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="generiques.html">Les types génériques</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generiques.html">Méthodes et classes génériques</a></li>
 <li class="toctree-l1"><a class="reference internal" href="classe_abstraite.html">Les classes abstraites</a></li>
 <li class="toctree-l1"><a class="reference internal" href="enumeration.html">Les énumérations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="interface.html">Les interfaces</a></li>
