@@ -24,7 +24,7 @@
     <script type="text/javascript" src="_static/translations.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Recherche" href="search.html" />
-    <link rel="next" title="Méthodes et classes génériques" href="generiques.html" />
+    <link rel="next" title="Les classes abstraites" href="classe_abstraite.html" />
     <link rel="prev" title="La classe String" href="la_classe_string.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
@@ -814,15 +814,15 @@ une <em>unchecked</em> exception. La frontière entre les deux familles a évolu
 au cours des versions de Java.</p>
 <p>On considère généralement qu’il est préférable de créer une <em>unchecked exception</em>
 lorsque l’exception représente une erreur technique, un événement qui ne relève
-pas du domaine de l’application mais qui est plutôt liée à son contexte
-d’exécution. Généralement il s’agit d’exceptions dont l’application ne pourra
-faire grand chose à part signaler un problème aux utilisateurs ou aux administrateurs.
+pas du domaine de l’application mais qui est plutôt lié à son contexte
+d’exécution. Généralement il s’agit d’exceptions que l’application ne pourra pas
+traiter correctement à part signaler un problème aux utilisateurs ou aux administrateurs.
 Par exemple, si votre application se connecte à un service distant, vous
-pouvez avoir le besoin de créer une exception <em>RemoteServiceUnavailableException</em>
+pouvez avoir besoin de créer une exception <em>RemoteServiceUnavailableException</em>
 pour signaler que le service ne répond pas. Ce type d’exception est probablement
 une <em>unchecked exception</em> et devrait hériter de <a class="reference external" href="https://docs.oracle.com/javase/8/docs/api/java/lang/RuntimeException.html">RuntimeException</a>.</p>
-<p>Par contre les exceptions qui peuvent avoir une valeur pour le domaine
-applicatif devrait sans doute être des <em>checked exception</em>. Généralement, elles
+<p>Par contre, les exceptions qui peuvent avoir une valeur pour le domaine
+applicatif devraient être des <em>checked exception</em>. Généralement, elles
 traduisent des états particuliers identifiés par les analystes du domaine.</p>
 <p>Par exemple, si vous développez une application bancaire pour réaliser des
 transactions, certaines transactions peuvent échouer lorsqu’un compte bancaire
@@ -835,7 +835,7 @@ vérifier qu’elle est correctement traitée.</p>
 <h2>Les assertions<a class="headerlink" href="#les-assertions" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Java dispose du mot-clé <strong>assert</strong> qui permet d’ajouter des assertions dans le code
 source.</p>
-<p>Une assertion est condition qui doit être vraie. Sinon une <a class="reference external" href="https://docs.oracle.com/javase/8/docs/api/java/lang/AssertionError.html">AssertionError</a> est jetée.
+<p>Une assertion est une condition qui doit être vraie. Sinon une <a class="reference external" href="https://docs.oracle.com/javase/8/docs/api/java/lang/AssertionError.html">AssertionError</a> est jetée.
 La syntaxe est la suivante :</p>
 <div class="highlight-java"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">expression</span><span class="o">;</span>
 <span class="k">assert</span> <span class="n">expression</span> <span class="o">:</span> <span class="n">valeur</span><span class="o">;</span>
@@ -905,20 +905,26 @@ invariants d’une classe.</p>
 <li class="toctree-l2"><a class="reference internal" href="#les-assertions">Les assertions</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="generiques.html">Méthodes et classes génériques</a></li>
 <li class="toctree-l1"><a class="reference internal" href="classe_abstraite.html">Les classes abstraites</a></li>
-<li class="toctree-l1"><a class="reference internal" href="enumeration.html">Les énumérations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="interface.html">Les interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generiques.html">Méthodes et classes génériques</a></li>
+<li class="toctree-l1"><a class="reference internal" href="les_collections.html">Les collections</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enumeration.html">Les énumérations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="les_dates.html">Les dates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="entrees_sorties.html">Les entrées/sorties</a></li>
 <li class="toctree-l1"><a class="reference internal" href="classe_interne.html">Les classes internes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="les_lambdas.html">Les lambdas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="streams.html">Streams</a></li>
+<li class="toctree-l1"><a class="reference internal" href="les_annotations.html">Les annotations</a></li>
 </ul>
 
 
 <hr />
 <ul>
     
-    <li class="toctree-l1"><a href="http://docs.oracle.com/javase/8/docs/">Documentation Java</a></li>
-    
     <li class="toctree-l1"><a href="http://docs.oracle.com/javase/8/docs/api/index.html?overview-summary.html">API Java</a></li>
+    
+    <li class="toctree-l1"><a href="http://docs.oracle.com/javase/8/docs/">Documentation Java</a></li>
     
 </ul>
 
