@@ -24,8 +24,8 @@
     <script type="text/javascript" src="_static/translations.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Recherche" href="search.html" />
-    <link rel="next" title="Les lambdas" href="les_lambdas.html" />
-    <link rel="prev" title="Les entrées/sorties" href="entrees_sorties.html" />
+    <link rel="next" title="Les annotations" href="les_annotations.html" />
+    <link rel="prev" title="Streams" href="streams.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
   
@@ -811,10 +811,15 @@ implicitement comme <strong>static</strong>. On peut ou non préciser le mot-cl�
 <span class="o">}</span>
 </pre></div>
 </div>
-<div class="admonition-todo admonition" id="index-0">
-<p class="first admonition-title">À faire</p>
-<p class="last">Plusieurs classes dans une unité de compilation</p>
 </div>
+<div class="section" id="plusieurs-classes-dans-un-meme-fichier">
+<h2>Plusieurs classes dans un même fichier<a class="headerlink" href="#plusieurs-classes-dans-un-meme-fichier" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Même s’il ne s’agit pas de classes internes, il est possible de déclarer
+plusieurs classes dans un même fichier en Java. Mais les classes supplémentaires
+sont forcément de portée package.</p>
+<p>En pratique cette possibilité n’est jamais utilisée par les développeurs qui
+préfèrent utiliser des classes internes <strong>static</strong> ou un fichier propre à
+chaque classe.</p>
 </div>
 </div>
 
@@ -843,8 +848,8 @@ implicitement comme <strong>static</strong>. On peut ou non préciser le mot-cl�
 <li class="toctree-l1"><a class="reference internal" href="types_primitifs.html">Les types primitifs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="operateurs.html">Les opérateurs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="structures_de_controle.html">Les structures de contrôle</a></li>
-<li class="toctree-l1"><a class="reference internal" href="attributs_et_methodes.html">Attributs &amp; méthodes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tableau.html">Les tableaux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="attributs_et_methodes.html">Attributs &amp; méthodes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cycle_de_vie.html">Cycle de vie d’un objet</a></li>
 <li class="toctree-l1"><a class="reference internal" href="package.html">Les packages</a></li>
 <li class="toctree-l1"><a class="reference internal" href="relations_entre_objets.html">Les relations entre objets</a></li>
@@ -856,9 +861,11 @@ implicitement comme <strong>static</strong>. On peut ou non préciser le mot-cl�
 <li class="toctree-l1"><a class="reference internal" href="interface.html">Les interfaces</a></li>
 <li class="toctree-l1"><a class="reference internal" href="generiques.html">Méthodes et classes génériques</a></li>
 <li class="toctree-l1"><a class="reference internal" href="les_collections.html">Les collections</a></li>
+<li class="toctree-l1"><a class="reference internal" href="entrees_sorties.html">Les entrées/sorties</a></li>
 <li class="toctree-l1"><a class="reference internal" href="enumeration.html">Les énumérations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="les_dates.html">Les dates</a></li>
-<li class="toctree-l1"><a class="reference internal" href="entrees_sorties.html">Les entrées/sorties</a></li>
+<li class="toctree-l1"><a class="reference internal" href="les_lambdas.html">Les lambdas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="streams.html">Streams</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Les classes internes</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#les-classes-internes-static">Les classes internes static</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#id1">Les classes internes</a></li>
@@ -866,10 +873,9 @@ implicitement comme <strong>static</strong>. On peut ou non préciser le mot-cl�
 <li class="toctree-l2"><a class="reference internal" href="#acces-aux-elements-de-l-objet-englobant">Accès aux éléments de l’objet englobant</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#classe-interne-a-une-methode">Classe interne à une méthode</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#interface-et-enumeration">Interface et énumération</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#plusieurs-classes-dans-un-meme-fichier">Plusieurs classes dans un même fichier</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="les_lambdas.html">Les lambdas</a></li>
-<li class="toctree-l1"><a class="reference internal" href="streams.html">Streams</a></li>
 <li class="toctree-l1"><a class="reference internal" href="les_annotations.html">Les annotations</a></li>
 </ul>
 
@@ -877,9 +883,9 @@ implicitement comme <strong>static</strong>. On peut ou non préciser le mot-cl�
 <hr />
 <ul>
     
-    <li class="toctree-l1"><a href="http://docs.oracle.com/javase/8/docs/">Documentation Java</a></li>
-    
     <li class="toctree-l1"><a href="http://docs.oracle.com/javase/8/docs/api/index.html?overview-summary.html">API Java</a></li>
+    
+    <li class="toctree-l1"><a href="http://docs.oracle.com/javase/8/docs/">Documentation Java</a></li>
     
 </ul>
 
