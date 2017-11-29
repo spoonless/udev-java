@@ -650,6 +650,61 @@ côté on peut créer et faire évoluer un système de persistance en ayant une 
 minimale aux opérations utilisateur puisque le système de persistance doit juste
 fournir des implémentations conformes aux interfaces.</p>
 </div>
+<div class="section" id="id1">
+<h2>Exercice<a class="headerlink" href="#id1" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="topic">
+<p class="topic-title first">Tri des notes</p>
+<p>Reprenez l’implémentation du système de gestion des diplômes des chapitres
+précédents.</p>
+<p>Faites évoluer la classe <em>Examen</em> afin d’ajouter un code pour un examen.
+Par exemple, un contrôle peut avoir le code «&nbsp;JAVA-LANG001&nbsp;» et un projet «&nbsp;PHP-PRJ&nbsp;».</p>
+<p>Ajoutez la méthode <em>getExamens</em> dans la classe <em>Diplome</em>. Cette méthode doit
+retourner un tableau des examens du diplôme trié selon un critère fourni en paramètre.</p>
+<p>Modifiez votre programme pour afficher successivement la liste des examens d’un diplôme
+triée suivant :</p>
+<ul class="simple">
+<li>le code des examens</li>
+<li>la note des examens</li>
+<li>la date des examens</li>
+</ul>
+<div class="admonition tip">
+<p class="first admonition-title">Astuce</p>
+<p class="last">Pour trier un tableau en Java, vous devez utiliser la méthode
+<a class="reference external" href="https://docs.oracle.com/javase/8/docs/api/java/util/Arrays.html#sort-T:A-java.util.Comparator-">Arrays.sort(Object[], Comparator)</a>. Cette méthode prend en premier paramètre
+le tableau à trier et en deuxième paramètre une implémentation de l’interface
+<a class="reference external" href="https://docs.oracle.com/javase/8/docs/api/java/util/Comparator.html">Comparator</a>. C’est l’implémentation de cette interface qui va être en charge
+de comparer les éléments deux à deux lors du tri. Ainsi, vous devez fournir
+une implémentation pour les trois tris demandés et la méthode <em>getExamens</em>
+attend un paramètre de type <a class="reference external" href="https://docs.oracle.com/javase/8/docs/api/java/util/Comparator.html">Comparator</a>.</p>
+</div>
+</div>
+<div class="topic">
+<p class="topic-title first">Mise en place d’une interface de sauvegarde (à suivre)</p>
+<p>On souhaite faire évoluer notre système de gestion des diplômes afin qu’il
+puisse permettre de sauver les informations relatives à un étudiant et son diplôme.</p>
+<p>Ajoutez une classe <em>Etudiant</em> qui contient au moins son code étudiant, son
+nom et un diplôme.</p>
+<p>Créer un interface <em>EtudiantDao</em>. <strong>DAO</strong> signifie <em>Data Access Object</em>.
+On utilise cet acronyme pour désigner des classes dont la responsabilité
+est d’accéder à des systèmes de sauvegardes (fichiers, bases de données…).
+Comme on souhaite créer une abstraction du système de données, il est souhaitable
+de déclarer une interface.</p>
+<p>L’interface doit permettre de :</p>
+<ul class="simple">
+<li>sauvegarder un étudiant, son diplôme et ses examens</li>
+<li>accéder à un étudiant selon son numéro.</li>
+</ul>
+<p>Comme nous ne disposons pas encore des outils nécessaires pour gérer des accès
+aux fichiers ou aux bases de données, nous commencerons par une implémentation
+naïve de l’interface qui garde simplement en mémoire l’étudiant sauvé.</p>
+<div class="admonition tip">
+<p class="first admonition-title">Astuce</p>
+<p class="last">Si votre programme principal est constitué d’une seule méthode <strong>main</strong>
+peut être devriez-vous penser à isoler chaque étape dans des méthodes ou mieux
+des classes distinctes.</p>
+</div>
+</div>
+</div>
 </div>
 
 
@@ -698,6 +753,7 @@ fournir des implémentations conformes aux interfaces.</p>
 <li class="toctree-l2"><a class="reference internal" href="#implementation-par-defaut">Implémentation par défaut</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#la-segregation-d-interface">La ségrégation d’interface</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#l-inversion-de-dependance">L’inversion de dépendance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id1">Exercice</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="generiques.html">Méthodes et classes génériques</a></li>
