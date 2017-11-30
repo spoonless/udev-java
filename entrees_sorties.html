@@ -1032,8 +1032,9 @@ sérialisation/désérialisation.</p>
 </div>
 <div class="section" id="exercice">
 <h2>Exercice<a class="headerlink" href="#exercice" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Réalisez <strong>UN</strong> des deux exercices suivants :</p>
 <div class="topic">
-<p class="topic-title first">Application de gestion des diplômes en ligne de commande (partie 1)</p>
+<p class="topic-title first">Application de gestion des diplômes en ligne de commande</p>
 <p>Reprenez l’implémentation du système de gestion des diplômes des chapitres
 précédents.</p>
 <p>L’objectif est de créer un programme qui permet de saisir les notes d’un étudiant.
@@ -1042,11 +1043,41 @@ son nom et sa date de naissance.</p>
 <p>Puis le programme demande de choisir le type d’examen. Ensuite le programme
 demande de saisir les informations nécessaires en fonction du type :</p>
 <ul class="simple">
-<li>Pour un contrôle, il faut saisir le code du contrôle et sa note sur 20</li>
-<li>Pour un projet, il faut saisir le code du projet et les notes d’oral et d’écrit sur 10</li>
-<li>Pour un QCM, il faut saisir le code du QCM, le nombre de questions et le nombre de réponses correctes</li>
+<li>Pour un contrôle, il faut saisir le code du contrôle, la date du contrôle et sa note sur 20</li>
+<li>Pour un projet, il faut saisir le code du projet, la date du projet et les notes d’oral et d’écrit sur 10</li>
+<li>Pour un QCM, il faut saisir le code du QCM, la date du projet, le nombre de questions et le nombre de réponses correctes</li>
 </ul>
 <p>Le programme affiche ensuite si l’étudiant a réussi ou non son examen.</p>
+</div>
+<div class="topic">
+<p class="topic-title first">Application de gestion des diplômes depuis un fichier</p>
+<p>Reprenez l’implémentation du système de gestion des diplômes des chapitres
+précédents.</p>
+<p>L’objectif est de créer un programme qui permet de lire un fichier <a class="reference external" href="https://fr.wikipedia.org/wiki/Comma-separated_values">CSV</a> contenant
+les informations sur des étudiants et leur résultat aux examens.
+Voici un exemple de contenu du fichier :</p>
+<div class="highlight-text"><div class="highlight"><pre><span></span>E34531;John Doe;CONTROLE;29/11/2015;14
+E34531;John Doe;QCM;30/11/2015;30;12
+E34531;John Doe;PROJET;25/11/2015;7;8
+</pre></div>
+</div>
+<p>Les lignes contiennent le code de l’étudiant, son nom puis le type de l’examen
+(QCM, CONTROLE ou PROJET). En fonction du type d’examen, les informations suivantes
+sur la ligne doivent être interprétées comme suit :</p>
+<dl class="docutils">
+<dt>CONTROLE</dt>
+<dd>la date du contrôle puis la note sur 20</dd>
+<dt>QCM</dt>
+<dd>la date du QCM puis le nombre de questions puis le nombre de réponses correctes</dd>
+<dt>PROJET</dt>
+<dd>la date du projet puis la note pour l’oral puis la note pour l’écrit</dd>
+</dl>
+<p>Le programme doit afficher sur la sortie standard le code des étudiants, leur
+nom et s’ils ont eu leur diplôme.</p>
+<div class="admonition tip">
+<p class="first admonition-title">Astuce</p>
+<p class="last">Vous pouvez utiliser une <a class="reference external" href="https://docs.oracle.com/javase/8/docs/api/java/util/Map.html">Map</a> pour associer le code à son instance de <em>Etudiant</em>.</p>
+</div>
 </div>
 </div>
 </div>
