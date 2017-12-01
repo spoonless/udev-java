@@ -1048,6 +1048,14 @@ demande de saisir les informations nécessaires en fonction du type :</p>
 <li>Pour un QCM, il faut saisir le code du QCM, la date du projet, le nombre de questions et le nombre de réponses correctes</li>
 </ul>
 <p>Le programme affiche ensuite si l’étudiant a réussi ou non son examen.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Pour cet exercice, vous allez lire des données sur l’entrée standard grâce
+à <a class="reference external" href="https://docs.oracle.com/javase/8/docs/api/java/lang/System.html#in">System.in</a>. Vous <strong>ne devez pas</strong> fermer ce flux en appelant sa méthode <em>close()</em>.
+En effet, les flux d’entrée et de sortie standard <a class="reference external" href="https://docs.oracle.com/javase/8/docs/api/java/lang/System.html#in">System.in</a>, <a class="reference external" href="https://docs.oracle.com/javase/8/docs/api/java/lang/System.html#out">System.out</a> et <a class="reference external" href="https://docs.oracle.com/javase/8/docs/api/java/lang/System.html#err">System.err</a>
+sont créés par la JVM au lancement de l’application et seront fermés par
+la JVM à la fin de l’application.</p>
+</div>
 </div>
 <div class="topic">
 <p class="topic-title first">Application de gestion des diplômes depuis un fichier</p>
@@ -1147,9 +1155,9 @@ nom et s’ils ont eu leur diplôme.</p>
 <hr />
 <ul>
     
-    <li class="toctree-l1"><a href="http://docs.oracle.com/javase/8/docs/">Documentation Java</a></li>
-    
     <li class="toctree-l1"><a href="http://docs.oracle.com/javase/8/docs/api/index.html?overview-summary.html">API Java</a></li>
+    
+    <li class="toctree-l1"><a href="http://docs.oracle.com/javase/8/docs/">Documentation Java</a></li>
     
 </ul>
 
