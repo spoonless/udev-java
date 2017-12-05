@@ -607,6 +607,39 @@ Pour cela, on utilise la démarcation transactionnelle.</p>
 </pre></div>
 </td></tr></table></div>
 </div>
+<div class="section" id="exercice">
+<h2>Exercice<a class="headerlink" href="#exercice" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="topic">
+<p class="topic-title first">Gestion des étudiants et des diplômes</p>
+<p>On souhaite faire évoluer le système de gestion des diplômes afin qu’il
+sauve les informations relatives à un étudiant et son diplôme
+dans une base de données.</p>
+<p>Reprenez l’exercice sur les entrées/sorties. Lorsque les données sont entrées
+par l’utilisateur ou sont lues depuis un fichier CSV (selon l’exercice que
+vous avez réalisé), les informations doivent être sauvées dans la base données.</p>
+<p>Fournissez également une application qui demande le code d’un étudiant sur
+l’entrée standard, qui va récupérer les informations d’un étudiant et qui affiche
+si l’étudiant a eu son diplôme.</p>
+<p>Pour cet exercice, il va falloir :</p>
+<ul class="simple">
+<li>concevoir le schéma de base de données pour stocker les étudiants, les diplômes
+et les examens.</li>
+<li>reprendre l’interface <em>EtudiantDao</em> afin de créer une implémentation de cette
+interface qui réalise les échanges avec la base de données</li>
+<li>faire évoluer votre application afin qu’elle sauve en base de données les informations
+d’un étudiant</li>
+<li>créer une application qui permet de saisir en ligne de commande le code d’un utilisateur
+et qui affiche le nom de l’utilisateur et les informations de son diplôme. L’application
+peut se présenter sous la forme d’une classe Java dans le projet avec sa propre
+méthode <em>main</em>.</li>
+</ul>
+<div class="admonition warning">
+<p class="first admonition-title">Avertissement</p>
+<p class="last">N’oubliez pas d’ajouter le script SQL qui permet de créer la base de données dans votre
+projet Eclipse.</p>
+</div>
+</div>
+</div>
 </div>
 
 
@@ -665,6 +698,7 @@ Pour cela, on utilise la démarcation transactionnelle.</p>
 <li class="toctree-l2"><a class="reference internal" href="#le-preparedstatement">Le PreparedStatement</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#le-callablestatement">Le CallableStatement</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#la-transaction">La transaction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#exercice">Exercice</a></li>
 </ul>
 </li>
 </ul>
